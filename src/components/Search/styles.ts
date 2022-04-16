@@ -34,6 +34,7 @@ export const Input = styled(TextInput)`
 `;
 
 export const ButtonClear = styled.TouchableOpacity`
+  padding: 12px;
   margin-right: 7px;
 `;
 

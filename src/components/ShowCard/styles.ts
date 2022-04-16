@@ -1,8 +1,7 @@
 import {RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity`
-  flex: 1;
+export const Container = styled.Pressable`
   flex-direction: row;
   margin: 10px 0;
 `;

@@ -1,5 +1,7 @@
+import {FlatList, FlatListProps} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
+import {ShowDTO} from '../../dtos/ShowDTO';
 
 export const Container = styled.View`
   flex: 1;
@@ -20,4 +22,11 @@ export const Title = styled.Text`
   padding: 12px;
 `;
 
-export const ShowsList = styled.FlatList``;
+export const ShowsList = styled(
+  FlatList as new (props: FlatListProps<ShowDTO>) => FlatList,
+).attrs({
+  contentContainerStyle: {
+    padding: 12,
+  },
+  showsVerticalScrollIndicator: false,
+})``;

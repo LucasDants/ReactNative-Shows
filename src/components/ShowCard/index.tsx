@@ -1,4 +1,5 @@
 import React, {memo} from 'react';
+import {ShowDTO} from '../../dtos/ShowDTO';
 import {StarsRating} from '../StarsRating';
 
 import {
@@ -11,21 +12,28 @@ import {
   Genres,
 } from './styles';
 
-function ShowCardComponent() {
+type Props = {
+  show: ShowDTO;
+};
+
+function ShowCardComponent({show}: Props) {
   return (
-    <Container activeOpacity={0.7}>
+    <Container
+      style={({pressed}) => ({
+        opacity: pressed ? 0.7 : 1,
+      })}>
       <Poster
         source={{
-          uri: 'https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg',
+          uri: show.image?.medium ?? '',
         }}
       />
       <InfoWrapper>
-        <Title>The Avengers</Title>
+        <Title>{show.name}</Title>
         <RatingWrapper>
-          <StarsRating rating={10} />
-          <Rating>9.6</Rating>
+          <StarsRating rating={show.rating.average} />
+          <Rating>{show.rating.average}</Rating>
         </RatingWrapper>
-        <Genres>Action, Adventure, Drama</Genres>
+        <Genres>{show.genres.join(', ')}</Genres>
       </InfoWrapper>
     </Container>
   );

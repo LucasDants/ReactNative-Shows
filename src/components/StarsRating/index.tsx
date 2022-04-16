@@ -37,12 +37,26 @@ export function StarsRating({rating}: Props) {
 
   return (
     <Container>
-      {starsRating.map(completeStar => (
-        <Icon
-          name="star"
-          color={completeStar ? colors.yellow : colors.gray[600]}
-        />
-      ))}
+      <Icon
+        name="star"
+        color={starsRating[0] ? colors.yellow : colors.gray[600]}
+      />
+      <Icon
+        name="star"
+        color={starsRating[1] ? colors.yellow : colors.gray[600]}
+      />
+      <Icon
+        name="star"
+        color={starsRating[2] ? colors.yellow : colors.gray[600]}
+      />
+      <Icon
+        name="star"
+        color={starsRating[3] ? colors.yellow : colors.gray[600]}
+      />
+      <Icon
+        name="star"
+        color={starsRating[4] ? colors.yellow : colors.gray[600]}
+      />
     </Container>
   );
 }
