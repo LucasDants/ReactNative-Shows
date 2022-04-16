@@ -1,20 +1,22 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, Text} from 'react-native';
+import {StatusBar} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {ThemeProvider} from 'styled-components';
+import {Routes} from './src/routes';
 import theme from './src/theme';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
+    <GestureHandlerRootView style={{flex: 1}}>
       <ThemeProvider theme={theme}>
-        <Text>Movies</Text>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        <Routes />
       </ThemeProvider>
-    </SafeAreaView>
+    </GestureHandlerRootView>
   );
 };
 
