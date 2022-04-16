@@ -1,10 +1,19 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StatusBar, Text} from 'react-native';
+import {ThemeProvider} from 'styled-components';
+import theme from './src/theme';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Text>Movies</Text>
+    <SafeAreaView style={{flex: 1}}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      <ThemeProvider theme={theme}>
+        <Text>Movies</Text>
+      </ThemeProvider>
     </SafeAreaView>
   );
 };
