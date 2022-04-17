@@ -22,10 +22,14 @@ import {
   Season,
 } from './styles';
 
+type ParamsProps = {
+  showID: number;
+};
+
 export function Show() {
   const {params} = useRoute();
   const navigation = useNavigation();
-  const {showID} = params;
+  const {showID} = params as ParamsProps;
   const {colors} = useTheme();
 
   const {data, loading} = useShow(showID);
@@ -50,8 +54,7 @@ export function Show() {
         />
         <Icon name="heart-o" size={26} color={colors.white} />
       </Header>
-      <Content
-        contentContainerStyle={{paddingHorizontal: 24, paddingBottom: 50}}>
+      <Content>
         <Main>
           <Banner source={{uri: image.original}} />
           <Title>{name}</Title>

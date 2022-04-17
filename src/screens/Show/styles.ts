@@ -12,7 +12,12 @@ export const Header = styled.View`
   padding: 33px 24px 0;
 `;
 
-export const Content = styled.ScrollView``;
+export const Content = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    paddingHorizontal: 24,
+    paddingBottom: 50,
+  },
+})``;
 
 export const Main = styled.View`
   align-items: center;

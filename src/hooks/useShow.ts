@@ -18,12 +18,12 @@ export function useShow(showID: number) {
         setData(show);
       })
       .catch(() => {
+        navigation.goBack();
         toast.show('Oops, something went wrong. Please try again later.', {
           type: 'danger',
           placement: 'bottom',
           duration: 2000,
         });
-        navigation.goBack();
       })
       .finally(() => {
         setLoading(false);

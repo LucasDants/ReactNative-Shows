@@ -7,6 +7,7 @@ export type ShowNavigationProps = {
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
+      LockScreen: undefined;
       Shows: undefined;
       Show: ShowNavigationProps;
       Episode: EpisodeDTO;
