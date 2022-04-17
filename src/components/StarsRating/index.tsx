@@ -1,34 +1,14 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTheme} from 'styled-components';
+import {calculateStarsRating} from '../../utils/calculateStarsRating';
 
-import {Container} from './styles';
+import {Container, Rating} from './styles';
 
 type Props = {
   rating: number;
 };
-
-function calculateStarsRating(rating: number) {
-  if (rating <= 1) {
-    return [0, 0, 0, 0, 0];
-  }
-  if (rating <= 3) {
-    return [1, 0, 0, 0, 0];
-  }
-  if (rating <= 5) {
-    return [1, 1, 0, 0, 0];
-  }
-  if (rating <= 7) {
-    return [1, 1, 1, 0, 0];
-  }
-  if (rating <= 9) {
-    return [1, 1, 1, 1, 0];
-  }
-  if (rating > 9) {
-    return [1, 1, 1, 1, 1];
-  }
-  return [0, 0, 0, 0, 0];
-}
 
 export function StarsRating({rating}: Props) {
   const {colors} = useTheme();
@@ -44,6 +24,7 @@ export function StarsRating({rating}: Props) {
       <Icon
         name="star"
         color={starsRating[1] ? colors.yellow : colors.gray[600]}
+        style={styles.iconMargin}
       />
       <Icon
         name="star"
@@ -52,11 +33,19 @@ export function StarsRating({rating}: Props) {
       <Icon
         name="star"
         color={starsRating[3] ? colors.yellow : colors.gray[600]}
+        style={styles.iconMargin}
       />
       <Icon
         name="star"
         color={starsRating[4] ? colors.yellow : colors.gray[600]}
       />
+      <Rating>{rating}</Rating>
     </Container>
   );
 }
+
+const styles = StyleSheet.create({
+  iconMargin: {
+    marginHorizontal: 5,
+  },
+});

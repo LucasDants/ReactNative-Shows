@@ -17,9 +17,7 @@ export function Shows() {
       <Header />
       <Search
         onSearch={() => {
-          if (search) {
-            searchShowsByName(search);
-          }
+          searchShowsByName(search);
         }}
         onClear={() => {
           setSearch('');
@@ -32,6 +30,7 @@ export function Shows() {
           }
         }}
         value={search}
+        searchEnabled={!!search}
       />
       <Title>Shows</Title>
       <ShowsList

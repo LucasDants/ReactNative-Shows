@@ -9,9 +9,15 @@ import {useTheme} from 'styled-components/native';
 type Props = TextInputProps & {
   onSearch: () => void;
   onClear: () => void;
+  searchEnabled?: boolean;
 };
 
-export function Search({onSearch, onClear, ...rest}: Props) {
+export function Search({
+  onSearch,
+  onClear,
+  searchEnabled = true,
+  ...rest
+}: Props) {
   const {colors} = useTheme();
   return (
     <Container>
@@ -26,7 +32,7 @@ export function Search({onSearch, onClear, ...rest}: Props) {
         </ButtonClear>
       </InputArea>
 
-      <Button onPress={onSearch}>
+      <Button onPress={onSearch} enabled={searchEnabled}>
         <Icon name="search" size={16} color={colors.white} />
       </Button>
     </Container>

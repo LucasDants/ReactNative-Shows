@@ -27,3 +27,14 @@ export async function searchShowsByName(name: string) {
     throw new Error();
   }
 }
+
+export async function getShow(id: number) {
+  try {
+    const {data} = await api.get<ShowDTO>(
+      `/shows/${id}?embed[]=episodes&embed[]=cast`,
+    );
+    return data;
+  } catch (err) {
+    throw new Error();
+  }
+}

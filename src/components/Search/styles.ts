@@ -46,4 +46,5 @@ export const Button = styled(RectButton)<ButtonProps>`
   background-color: ${({theme}) => theme.colors.red};
   border-radius: 6px;
   margin-left: 7px;
+  opacity: ${({enabled}) => (enabled ? 1 : 0.7)};
 `;

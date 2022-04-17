@@ -1,27 +1,23 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {memo} from 'react';
 import {ShowDTO} from '../../dtos/ShowDTO';
 import {StarsRating} from '../StarsRating';
 
-import {
-  Container,
-  Poster,
-  InfoWrapper,
-  Title,
-  RatingWrapper,
-  Rating,
-  Genres,
-} from './styles';
+import {Container, Poster, InfoWrapper, Title, Genres} from './styles';
 
 type Props = {
   show: ShowDTO;
 };
 
 function ShowCardComponent({show}: Props) {
+  const navigation = useNavigation();
+
   return (
     <Container
       style={({pressed}) => ({
         opacity: pressed ? 0.7 : 1,
-      })}>
+      })}
+      onPress={() => navigation.navigate('Show', {showID: show.id})}>
       <Poster
         source={{
           uri: show.image?.medium ?? '',
@@ -29,10 +25,8 @@ function ShowCardComponent({show}: Props) {
       />
       <InfoWrapper>
         <Title>{show.name}</Title>
-        <RatingWrapper>
-          <StarsRating rating={show.rating.average} />
-          <Rating>{show.rating.average}</Rating>
-        </RatingWrapper>
+
+        <StarsRating rating={show.rating.average} />
         <Genres>{show.genres.join(', ')}</Genres>
       </InfoWrapper>
     </Container>
