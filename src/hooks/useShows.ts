@@ -49,9 +49,11 @@ export function useShows() {
   }
 
   function clearSearch() {
-    setData([]);
-    setPage(0);
-    setIsSearching(false);
+    if (isSearching) {
+      setData([]);
+      setPage(0);
+      setIsSearching(false);
+    }
   }
 
   useEffect(() => {

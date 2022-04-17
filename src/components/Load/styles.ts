@@ -10,6 +10,6 @@ export const Container = styled.View`
 
 export const Animation = styled(LottieView)`
   background-color: transparent;
-  width: 200;
-  height: 200;
+  width: 200px;
+  height: 200px;
 `;
