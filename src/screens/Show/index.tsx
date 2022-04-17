@@ -4,6 +4,7 @@ import {FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTheme} from 'styled-components';
 import {EpisodeCard} from '../../components/EpisodeCard';
+import {Load} from '../../components/Load';
 import {StarsRating} from '../../components/StarsRating';
 import {EpisodeDTO} from '../../dtos/EpisodeDTO';
 import {useShow} from '../../hooks/useShow';
@@ -35,7 +36,7 @@ export function Show() {
   const seasons = Object.values(groupBy(episodes, 'season')) as [EpisodeDTO[]];
 
   if (loading) {
-    return <></>;
+    return <Load />;
   }
 
   return (
