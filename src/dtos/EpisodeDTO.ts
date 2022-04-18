@@ -7,5 +7,5 @@ export interface EpisodeDTO {
   image: {
     medium: string;
     original: string;
-  };
+  } | null;
 }

@@ -1,12 +1,13 @@
 import {RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
+import {ImageComponent} from '../ImageComponent';
 
 export const Container = styled.Pressable`
   flex-direction: row;
   margin: 10px 0;
 `;
 
-export const Poster = styled.Image.attrs({
+export const Poster = styled(ImageComponent).attrs({
   resizeMode: 'contain',
 })`
   height: 90px;

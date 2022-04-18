@@ -2,7 +2,10 @@
  * @description return an array of 5 positions where 1 represents complete stars and 0 empty stars.
  */
 
-export function calculateStarsRating(rating: number) {
+export function calculateStarsRating(rating: number | null) {
+  if (rating === null) {
+    return [0, 0, 0, 0, 0];
+  }
   if (rating <= 1) {
     return [0, 0, 0, 0, 0];
   }

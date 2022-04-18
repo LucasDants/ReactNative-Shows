@@ -1,6 +1,7 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {Fragment} from 'react';
 import {FlatList} from 'react-native';
+import {BorderlessButton} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTheme} from 'styled-components';
 import {EpisodeCard} from '../../components/EpisodeCard';
@@ -9,6 +10,7 @@ import {StarsRating} from '../../components/StarsRating';
 import {EpisodeDTO} from '../../dtos/EpisodeDTO';
 import {useShow} from '../../hooks/useShow';
 import {groupBy} from '../../utils/groupBy';
+import {removeHTMLTags} from '../../utils/removeHTMLTags';
 
 import {
   Container,
@@ -34,7 +36,8 @@ export function Show() {
 
   const {data, loading} = useShow(showID);
 
-  const {name, genres, image, rating, summary, premiered, ended} = data;
+  const {name, genres, image, rating, summary, premiered, ended, schedule} =
+    data;
   const episodes = data._embedded?.episodes ?? [];
 
   const seasons = Object.values(groupBy(episodes, 'season')) as [EpisodeDTO[]];
@@ -46,25 +49,27 @@ export function Show() {
   return (
     <Container>
       <Header style={{elevation: 2}}>
-        <Icon
-          name="angle-left"
-          size={26}
-          color={colors.white}
-          onPress={() => navigation.goBack()}
-        />
-        <Icon name="heart-o" size={26} color={colors.white} />
+        <BorderlessButton onPress={() => navigation.goBack()}>
+          <Icon name="angle-left" size={26} color={colors.white} />
+        </BorderlessButton>
+        <BorderlessButton>
+          <Icon name="heart-o" size={26} color={colors.white} />
+        </BorderlessButton>
       </Header>
       <Content>
         <Main>
-          <Banner source={{uri: image.original}} />
+          <Banner source={{uri: image?.original}} />
           <Title>{name}</Title>
           <StarsRating rating={rating.average} />
           <Subtitle>
-            {premiered.split('-')[0]} ● {genres.join(', ')} ●{' '}
-            {ended.split('-')[0]}
+            {genres.join(', ')} {'\n'}
+            {premiered.split('-')[0]} ●{' '}
+            {ended
+              ? ended.split('-')[0]
+              : `${schedule.time}h / ${schedule.days.join(', ')}`}
           </Subtitle>
         </Main>
-        <Summary>{summary.split(/<[^>]*>/).join('')}</Summary>
+        <Summary>{removeHTMLTags(summary)}</Summary>
         {seasons.map((season, index) => (
           <Fragment key={season[0].name}>
             <Season>Season {index + 1}</Season>

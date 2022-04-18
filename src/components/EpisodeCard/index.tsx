@@ -17,7 +17,7 @@ function EpisodeCardComponent({episode}: Props) {
 
   return (
     <Container onPress={handleNavigateEpisode}>
-      <Banner source={{uri: episode.image.medium ?? ''}} />
+      <Banner source={{uri: episode.image?.medium}} />
       <Title>{`${episode.number}. ${episode.name}`}</Title>
     </Container>
   );

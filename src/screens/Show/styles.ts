@@ -1,5 +1,6 @@
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
+import {ImageComponent} from '../../components/ImageComponent';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -9,7 +10,7 @@ export const Container = styled.SafeAreaView`
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding: 33px 24px 0;
+  padding: 33px 24px 10px;
 `;
 
 export const Content = styled.ScrollView.attrs({
@@ -23,7 +24,7 @@ export const Main = styled.View`
   align-items: center;
 `;
 
-export const Banner = styled.Image.attrs({resizeMode: 'contain'})`
+export const Banner = styled(ImageComponent).attrs({resizeMode: 'contain'})`
   width: 50%;
   height: ${RFPercentage(40)}px;
   border-radius: 4px;
@@ -54,7 +55,7 @@ export const Summary = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.fonts.subtitle};
     font-size: ${RFValue(16)}px;
-    color: ${theme.colors.gray[400]};
+    color: ${theme.colors.gray[100]};
   `}
 
   text-align: justify;

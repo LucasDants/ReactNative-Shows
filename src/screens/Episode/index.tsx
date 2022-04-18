@@ -11,30 +11,33 @@ import {
   Subtitle,
   Summary,
 } from './styles';
+import {EpisodeDTO} from '../../dtos/EpisodeDTO';
+import {BorderlessButton} from 'react-native-gesture-handler';
+import {removeHTMLTags} from '../../utils/removeHTMLTags';
+
+type ParamsProps = EpisodeDTO;
 
 export function Episode() {
-  const {params} = useRoute();
+  const route = useRoute();
+  const episode = route.params as ParamsProps;
   const {colors} = useTheme();
   const navigation = useNavigation();
 
   return (
     <Container>
-      <BackgroundImage source={{uri: params.image.original ?? ''}}>
+      <BackgroundImage source={{uri: episode.image?.original}}>
         <Header style={{elevation: 2}}>
-          <Icon
-            name="angle-left"
-            size={26}
-            color={colors.white}
-            onPress={() => navigation.goBack()}
-          />
+          <BorderlessButton onPress={() => navigation.goBack()}>
+            <Icon name="angle-left" size={26} color={colors.white} />
+          </BorderlessButton>
         </Header>
       </BackgroundImage>
       <Content>
         <Title>
-          {params.number}. {params.name}
+          {episode.number}. {episode.name}
         </Title>
-        <Subtitle>Season {params.season}</Subtitle>
-        <Summary>{params.summary.split(/<[^>]*>/).join('')}</Summary>
+        <Subtitle>Season {episode.season}</Subtitle>
+        <Summary>{removeHTMLTags(episode.summary)}</Summary>
       </Content>
     </Container>
   );

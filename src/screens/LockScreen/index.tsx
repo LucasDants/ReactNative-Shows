@@ -50,6 +50,7 @@ export function LockScreen() {
       colorCircleButtons={theme.colors.gray[400]}
       numbersButtonOverlayColor={theme.colors.red}
       stylePinCodeButtonNumber={styles.title.color}
+      stylePinCodeDeleteButtonColorShowUnderlay={theme.colors.red}
       // Password Point
       colorPassword={theme.colors.red}
       colorPasswordEmpty={theme.colors.gray[400]}

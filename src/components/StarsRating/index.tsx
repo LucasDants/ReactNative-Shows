@@ -7,7 +7,7 @@ import {calculateStarsRating} from '../../utils/calculateStarsRating';
 import {Container, Rating} from './styles';
 
 type Props = {
-  rating: number;
+  rating: number | null;
 };
 
 export function StarsRating({rating}: Props) {

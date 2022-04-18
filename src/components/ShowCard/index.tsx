@@ -18,11 +18,7 @@ function ShowCardComponent({show}: Props) {
         opacity: pressed ? 0.7 : 1,
       })}
       onPress={() => navigation.navigate('Show', {showID: show.id})}>
-      <Poster
-        source={{
-          uri: show.image?.medium ?? '',
-        }}
-      />
+      <Poster source={{uri: show.image?.medium}} />
       <InfoWrapper>
         <Title>{show.name}</Title>
 

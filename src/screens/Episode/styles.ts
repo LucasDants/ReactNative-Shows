@@ -1,17 +1,17 @@
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
+import {BackgroundImage as BGImage} from '../../components/BackgroundImage';
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${({theme}) => theme.colors.gray[900]};
 `;
 
-export const BackgroundImage = styled.ImageBackground.attrs({
+export const BackgroundImage = styled(BGImage).attrs({
   resizeMode: 'cover',
 })`
   width: 100%;
   height: ${RFPercentage(35)}px;
-  border-radius: 4px;
 `;
 
 export const Header = styled.View`
@@ -48,7 +48,7 @@ export const Summary = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.fonts.subtitle};
     font-size: ${RFValue(16)}px;
-    color: ${theme.colors.gray[400]};
+    color: ${theme.colors.gray[100]};
   `}
 
   text-align: justify;

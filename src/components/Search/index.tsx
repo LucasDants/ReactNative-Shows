@@ -23,7 +23,7 @@ export function Search({
     <Container>
       <InputArea>
         <Input
-          placeholder="Search shows..."
+          placeholder="Search shows by name..."
           placeholderTextColor={colors.gray[100]}
           {...rest}
         />
