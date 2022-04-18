@@ -11,6 +11,7 @@ export declare global {
       Shows: undefined;
       Show: ShowNavigationProps;
       Episode: EpisodeDTO;
+      Favorites: undefined;
     }
   }
 }
