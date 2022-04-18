@@ -13,6 +13,7 @@
 - [x] Allow the user to browse their favorite series in alphabetical order, and click on one to see its details
 - [ ] Create a people search by listing the name and image of the person.
 - [ ] After clicking on a person, the application should show the details of that person
+- [ ] Unit testing is a plus.
 - [x] Extra features are also a plus
 
 <h1>:rocket: Getting started</h1>
