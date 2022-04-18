@@ -2,16 +2,18 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import styled, {css} from 'styled-components/native';
 import {ImageComponent} from '../ImageComponent';
 
-export const Container = styled.Pressable`
+export const Container = styled.View`
   margin-right: 12px;
+  align-items: center;
 `;
 
 export const Banner = styled(ImageComponent)`
-  width: 150px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
 `;
 
-export const Title = styled.Text`
+export const Person = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.fonts.title};
     font-size: ${RFValue(14)}px;
@@ -19,4 +21,12 @@ export const Title = styled.Text`
   `}
 
   padding-top: 5px;
+`;
+
+export const Character = styled.Text`
+  ${({theme}) => css`
+    font-family: ${theme.fonts.subtitle};
+    font-size: ${RFValue(14)}px;
+    color: ${theme.colors.gray[400]};
+  `}
 `;

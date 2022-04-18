@@ -57,7 +57,7 @@ export const Summary = styled.Text`
   margin-top: 12px;
 `;
 
-export const Season = styled.Text`
+export const ListTextSeparator = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.fonts.title};
     font-size: ${RFValue(22)}px;
