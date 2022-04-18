@@ -1,12 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {memo} from 'react';
-import {ShowDTO} from '../../dtos/ShowDTO';
+import {ShowDTO, ShowStored} from '../../dtos/ShowDTO';
 import {StarsRating} from '../StarsRating';
 
 import {Container, Poster, InfoWrapper, Title, Genres} from './styles';
 
 type Props = {
-  show: ShowDTO;
+  show: ShowDTO | ShowStored;
 };
 
 function ShowCardComponent({show}: Props) {

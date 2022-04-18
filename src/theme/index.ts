@@ -1,6 +1,9 @@
 export default {
   colors: {
-    red: '#B83341',
+    red: {
+      900: '#B83341',
+      800: '#E03F50',
+    },
     yellow: '#F0A500',
     white: '#FFFFFF',
     gray: {

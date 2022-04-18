@@ -48,22 +48,22 @@ export function LockScreen() {
       stylePinCodeTextButtonCircle={styles.title}
       stylePinCodeDeleteButtonText={styles.subtitle}
       colorCircleButtons={theme.colors.gray[400]}
-      numbersButtonOverlayColor={theme.colors.red}
+      numbersButtonOverlayColor={theme.colors.red[900]}
       stylePinCodeButtonNumber={styles.title.color}
-      stylePinCodeDeleteButtonColorShowUnderlay={theme.colors.red}
+      stylePinCodeDeleteButtonColorShowUnderlay={theme.colors.red[900]}
       // Password Point
-      colorPassword={theme.colors.red}
+      colorPassword={theme.colors.red[900]}
       colorPasswordEmpty={theme.colors.gray[400]}
       stylePinCodeCircle={styles.pinCodeCircle}
       // Lock Screen
       styleLockScreenButton={{
-        backgroundColor: theme.colors.red,
+        backgroundColor: theme.colors.red[900],
       }}
       styleLockScreenTitle={styles.title}
       styleLockScreenText={styles.subtitle}
       styleLockScreenTextTimer={styles.title}
       styleLockScreenViewTimer={{
-        borderColor: theme.colors.red,
+        borderColor: theme.colors.red[900],
       }}
       finishProcess={finishProcess}
       textButtonLockedPage="Exit app and change your pin code"

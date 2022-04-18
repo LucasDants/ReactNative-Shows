@@ -11,7 +11,7 @@ export const Container = styled.View`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding: 0 12px;
+  padding: 10px 12px;
 `;
 
 export const InputArea = styled.View`
@@ -43,7 +43,7 @@ export const Button = styled(RectButton)<ButtonProps>`
   height: 52px;
   align-items: center;
   justify-content: center;
-  background-color: ${({theme}) => theme.colors.red};
+  background-color: ${({theme}) => theme.colors.red[900]};
   border-radius: 6px;
   margin-left: 7px;
   opacity: ${({enabled}) => (enabled ? 1 : 0.7)};

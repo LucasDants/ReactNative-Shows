@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {useToast} from 'react-native-toast-notifications';
+import {dangerToast} from '../configs/toast';
 import {ShowDTO} from '../dtos/ShowDTO';
 import {getShow} from '../services/shows';
 
@@ -19,11 +20,10 @@ export function useShow(showID: number) {
       })
       .catch(() => {
         navigation.goBack();
-        toast.show('Oops, something went wrong. Please try again later.', {
-          type: 'danger',
-          placement: 'bottom',
-          duration: 2000,
-        });
+        toast.show(
+          'Oops, something went wrong. Please try again later.',
+          dangerToast,
+        );
       })
       .finally(() => {
         setLoading(false);

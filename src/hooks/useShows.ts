@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useToast} from 'react-native-toast-notifications';
+import {dangerToast} from '../configs/toast';
 import {ShowDTO} from '../dtos/ShowDTO';
 import {getShows, searchShowsByName as searchShows} from '../services/shows';
 
@@ -33,14 +34,17 @@ export function useShows() {
         const shows = results.map(item => ({
           ...item.show,
         }));
+        if (shows.length === 0) {
+          toast.show('Shows not found. Try another name.', dangerToast);
+          return;
+        }
         setData(shows);
       })
       .catch(err => {
-        toast.show('Oops, something went wrong. Please try again later.', {
-          type: 'danger',
-          placement: 'bottom',
-          duration: 2000,
-        });
+        toast.show(
+          'Oops, something went wrong. Please try again later.',
+          dangerToast,
+        );
         console.log(err);
       })
       .finally(() => {

@@ -7,12 +7,6 @@ export const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.colors.gray[900]};
 `;
 
-export const Header = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 33px 24px 10px;
-`;
-
 export const Content = styled.ScrollView.attrs({
   contentContainerStyle: {
     paddingHorizontal: 24,

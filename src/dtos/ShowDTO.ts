@@ -28,3 +28,8 @@ export interface ShowDTO {
     cast: CastDTO[];
   };
 }
+
+export type ShowStored = Pick<
+  ShowDTO,
+  'id' | 'name' | 'genres' | 'rating' | 'image'
+>;
